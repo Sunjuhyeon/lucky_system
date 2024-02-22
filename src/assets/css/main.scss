@@ -6,9 +6,37 @@
   left: 0;
   z-index: 100;
   width: 100vw;
+
+  &:after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    display: block;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: 0.3s;
+  }
   &.scroll{
     background-color: #fff;
-    border-bottom: 1px solid rgb(212, 212, 212, 0.4)
+    border-bottom: 1px solid rgb(212, 212, 212, 0.4);
+  }
+  &:hover{
+    background-color: #fff;
+    &:after{
+      height: 200px;
+        border-top: 1px solid rgb(212, 212, 212, 0.4);
+    }
+    .hd_wrap{
+      nav{
+        .nav_wrap{
+          ul{
+            height: 200px;
+          }
+        }
+      }
+    }
   }
 }
 .hd_wrap{
@@ -17,30 +45,65 @@
   justify-content: space-between;
   align-items: center;
   .logo{
-    img{
-      height: 2rem;
+    a{
+      display: block;
+      img{
+        height: 2rem;
+      }
     }
   }
   nav{
     display: flex;
     align-items: center;
     gap: 10px;
-    ul{
+    .mo_nav{
+      display: none;
+      order: 1;
+      font-size: 0;
+      background: url(../images/ico/moblie_menu_ico.svg) no-repeat center;
+      background-size: contain;
+      width: 38px;
+      height: 38px;
+    }
+    .nav_wrap{
       display: flex;
-      a{
-        padding: 0.5rem 1rem;
-        font-size: 16px;
+      gap: 10px;
+      >li{
+        position: relative;
+        >a{
+          padding: 0.5rem 1rem;
+          font-size: 16px;
+        }
+      }
+      ul{
+        position: absolute;
+        transition: 0.3s;
+        top: 100%;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 30px 0 0;
+        z-index: 100;
+        li{
+          a{
+            font-size: 15px;
+            display: block;
+          }
+        }
       }
     }
   }
 }
 .ft_wrap{
   background-color: #F1F4F6;
-  margin-top: 160px;
   padding: 40px 80px 60px;
   .f_gnb{
     display: flex;
-    gap: 30px;
+    gap: 40px;
     >li{
       span{
         font-weight: 500;
@@ -89,6 +152,7 @@
       }
     }
     .sec_r{
+      display: inline-flex;
       a{
         font-size: 0;
         background: url(../images/ico/blog.png) no-repeat center;
@@ -138,6 +202,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 100%;
     h3{
       font-size: 35px;
       line-height: 52px;
@@ -154,6 +219,7 @@
   margin-top: 100px;
   .service_list{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -300,10 +366,12 @@
       }
       .txt_wrap{
         span{
-          font-size: 18px;
-          line-height: 24px;
-          color: $font2;
-          font-weight: 500;
+          &.nunito{
+            font-size: 18px;
+            line-height: 24px;
+            color: $font2;
+            font-weight: 500;
+          }
         }
         h3{
           color: $font1;
@@ -321,6 +389,11 @@
           font-size: 18px;
           line-height: 24px;
           margin-top: 30px;
+        }
+        h3, p{
+          span{
+            display: block;
+          }
         }
       }
     }
@@ -482,6 +555,11 @@
       font-size: 20px;
       line-height: 24px;
       font-weight: 500;
+      span{
+        +span{
+          margin-left: 4px;
+        }
+      }
     }
     .number_wrap{
       display: flex;
@@ -489,8 +567,8 @@
       margin-top: 30px;
       gap: 5px;
       strong{
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 24px;
+        line-height: 32px;
         font-family: $nunito;
       }
     }
@@ -518,13 +596,269 @@
   }
 }
 
+// 라우트 페이지
+.route_wrap{
+  position: relative;
+  .tab_wrap{
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(37, 45, 72, 0.1);
+    border-radius: 50px;
+    padding: 5px;
+    top: 100px;
+    left: 50%;
+    position: fixed;
+    width: 900px;
+    transform: translateX(-50%);
+    z-index: 100;
+    li{
+      width: calc(100% / 4);
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        height: 100%;
+        background-color: rgba(56, 165, 255, 0);
+        border-radius: 50px;
+        width: 100%;
+        transition: 0.3s;
+        transform: scaleX(0);
+      }
+      &.on{
+        &::before{
+          background-color: #39A7FF;
+          transform: scaleX(1);
+        }
+        .anchor{
+          color: #fff;
+        }
+      }
+      .anchor{
+        position: relative;
+        z-index: 50;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        font-size: 18px;
+        color: $font1;
+        display: block;
+      }
+    }
+  }
+}
+.inner{
+  padding: 250px 0 0;
+  height: 100vh;
+  .tit_wrap{
+    p{
+      span{
+        display: block;
+      }
+    }
+  }
+}
+
 
 @include mobile{
   .hd_wrap{
-    padding: 0 0.625rem;
+    padding: 10px 0;
     .logo{
       img{
-        height: 1.75rem;
+        height: 1.5rem;
+        vertical-align: middle;
+      }
+    }
+    nav{
+      ul{
+        display: none;
+      }
+      .mo_nav{
+        display: block;
+      }
+      .btn{
+        font-size: 14px;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+  .ft_wrap{
+    padding: 20px 16px 30px;
+    .f_gnb{
+      flex-wrap: wrap;
+      gap: 25px 0;
+      >li{
+        width: 50%;
+        ul{
+          margin-top: 10px;
+        }
+      }
+    }
+    .info_wrap{
+      margin-top: 35px;
+      padding-top: 20px;
+      flex-direction: column-reverse;
+      .sec_l{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 30px;
+        .company_info{
+          margin-top: 0;
+          span{
+            display: block;
+            &::after{
+              content: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content_wrap{
+    margin-top: 30px;
+    padding: 0 16px;
+  }
+  
+  #banner_wrap{
+    .txt_wrap{
+      padding: 0 16px;
+      h3{
+        word-break: keep-all;
+        font-size: 24px;
+        line-height: 36px;
+      }
+      .btn{
+        width: 200px;
+        padding: 0.9rem 0.75rem;
+      }
+    }
+  }
+  #service_wrap{
+    margin-top: 60px;
+    .service_list{
+      li{
+        .ico_wrap{
+          padding: 1rem;
+          i{
+            width: 70px;
+          }
+        }
+      }
+    }
+    .all_wrap{
+      padding: 20px 15px;
+      .sub_tit{
+        font-size: 18px;
+      }
+      .all_list{
+        flex-wrap: wrap;
+        li{
+          min-width: 100%;
+        }
+      }
+    }
+  }
+  #about_wrap{
+    margin-top: 60px;
+    .list_wrap{
+      gap: 3rem;
+      li{
+        flex-direction: column-reverse;
+        gap: 30px;
+        .txt_wrap{
+          span{
+            &.nunito{
+              font-size: 15px;
+              line-height: 22px;
+              font-weight: 700;
+            }
+          }
+          h3{
+            margin-top: 10px;
+            font-size: 22px;
+            line-height: 30px;
+          }
+          p{
+            font-size: 16px;
+            line-height: 22px;
+            margin-top: 20px;
+          }
+          h3, p{
+            span{
+              display: inline;
+              +span{
+                margin-left: 4px;
+              }
+            }
+          }
+        }
+        .img_wrap{
+          max-width: none;
+        }
+      }
+    }
+  }
+  #process_wrap{
+    padding: 30px 0 50px;
+    .list_wrap{
+      flex-direction: column;
+      align-items: center;
+      li{
+        width: 100%;
+        height: 150px;
+        padding: 25px 20px 30px;
+        h3{
+          margin-left: 51px;
+        }
+      }
+    }
+  }
+  #partner_wrap{
+    margin-top: 60px;
+    .slide_banner{
+      margin: 20px auto;
+      height: 90px;
+      .logo_wrap{
+        li{
+          padding: 12px 25px;
+          img{
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+  #sub_wrap{
+    margin-top: 60px;
+    padding: 0 16px;
+    ul{
+      display: flex;
+      flex-direction: column;
+      li{
+        .list_wrap{
+          padding: 20px 15px;
+        }
+        +li{
+          span{
+            font-size: 22px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .sub1{
+      .sub_tit{
+        line-height: 28px;
+        span{
+          display: block;
+          +span{
+            margin-left: 0;
+          }
+        }
+      }
+      .number_wrap, .time_wrap{
+        margin-top: 20px;
       }
     }
   }

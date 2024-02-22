@@ -8,6 +8,9 @@ body * {
 body{
   color: $font0;
 }
+button{
+  cursor: pointer;
+}
 
 .w_set{
   width: $w_set;
@@ -32,7 +35,7 @@ body{
 
 .tit_wrap{
   text-align: center;
-  span{
+  >span{
     font-size: 18px;
     line-height: 32px;
     font-weight: 500;
@@ -44,6 +47,12 @@ body{
     font-weight: 500;
     em{
       color: $point0;
+    }
+    span{
+      display: inline;
+      +span {
+        margin-left: 4px;
+      }
     }
   }
 }
@@ -58,5 +67,22 @@ body{
 
   .hide_m{
     display: none !important;
+  }
+
+  .tit_wrap{
+    >span{
+      font-size: 15px;
+    }
+    p{
+      font-size: 24px;
+      line-height: 36px;
+      word-break: keep-all;
+      span{
+        display: block;
+        +span{
+          margin-left: 0;
+        }
+      }
+    }
   }
 }

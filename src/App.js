@@ -2,9 +2,9 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import {useEffect} from "react";
 import Header from './layout/Header';
-import Footer from './layout/Footer';
 import Main from './views/Main';
 import Intro from './views/company/Intro';
+import Sub from './views/company/Sub';
 
 function App() {
   const callApi = async () => {
@@ -27,8 +27,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Main/>}></Route>
       <Route path="/intro" element={<Intro/>}></Route>
+      <Route path="/sub" element={<Sub/>}></Route>
     </Routes>
-    <Footer/>
     </>
   );
 }

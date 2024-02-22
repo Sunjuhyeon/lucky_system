@@ -7,6 +7,10 @@ body {
   color: #222;
 }
 
+button {
+  cursor: pointer;
+}
+
 .w_set {
   width: 1080px;
   margin-left: auto !important;
@@ -31,7 +35,7 @@ body {
 .tit_wrap {
   text-align: center;
 }
-.tit_wrap span {
+.tit_wrap > span {
   font-size: 18px;
   line-height: 32px;
   font-weight: 500;
@@ -45,6 +49,12 @@ body {
 .tit_wrap p em {
   color: #39A7FF;
 }
+.tit_wrap p span {
+  display: inline;
+}
+.tit_wrap p span + span {
+  margin-left: 4px;
+}
 
 @media (max-width: 1080px) {
   body:not(.is_pc) .w_set {
@@ -55,5 +65,19 @@ body {
   }
   body:not(.is_pc) .hide_m {
     display: none !important;
+  }
+  body:not(.is_pc) .tit_wrap > span {
+    font-size: 15px;
+  }
+  body:not(.is_pc) .tit_wrap p {
+    font-size: 24px;
+    line-height: 36px;
+    word-break: keep-all;
+  }
+  body:not(.is_pc) .tit_wrap p span {
+    display: block;
+  }
+  body:not(.is_pc) .tit_wrap p span + span {
+    margin-left: 0;
   }
 }/*# sourceMappingURL=common.css.map */

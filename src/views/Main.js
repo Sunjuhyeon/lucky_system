@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import styled from "styled-components"
+import Footer from '../layout/Footer';
 import Partner from './sub/Partner';
 import Service from './sub/Service';
+
+const MainSection = styled.div`
+  padding : 0 0 20px;
+`
 
 export default function Main() {
   const [showService, setShowService] = useState(false);
@@ -11,6 +17,7 @@ export default function Main() {
 
   return (
     <>
+    <MainSection>
     <section id='banner_wrap'>
       <div className='txt_wrap'> 
         <h3>
@@ -23,7 +30,10 @@ export default function Main() {
     <section id='service_wrap'>
       <div className='tit_wrap'>
         <span className='nunito'>SERVICE CATEGORY</span>
-        <p>공간에 필요한 모든 서비스를 한번에!</p>
+        <p>
+          <span>공간에 필요한</span>
+          <span>모든 서비스를 한번에!</span>
+        </p>
       </div>
       <div className='content_wrap'>
         <ul className='service_list'>
@@ -68,7 +78,10 @@ export default function Main() {
     <section id='about_wrap'>
       <div className='tit_wrap'>
         <span className='nunito'>ABOUT US</span>
-        <p>왜! <em>럭키시스템</em>을 선택해야할까요?</p>
+        <p>
+          <span>왜! <em>럭키시스템</em>을</span>
+          <span>선택해야할까요?</span>
+        </p>
       </div>
       <div className='content_wrap'>
         <ul className='list_wrap'>
@@ -79,12 +92,12 @@ export default function Main() {
             <div className='txt_wrap'>
               <span className='nunito'>POINT 01</span>
               <h3>
-                소통왕 <em>전담매니저</em>가 고객님의 상황에<br />
-                맞춤 케어를 해드립니다.
+                <span>소통왕 <em>전담매니저</em>가 고객님의 상황에</span>
+                <span>맞춤 케어를 해드립니다.</span>
               </h3>
               <p>
-                럭키시스템의 전담 매니저는 적극적이고 신속한 피드백을 통해<br />
-                고객님의 상황을 빠르게 파악하고 해결해드립니다.
+                <span>럭키시스템의 전담 매니저는 적극적이고 신속한 피드백을 통해</span>
+                <span>고객님의 상황을 빠르게 파악하고 해결해드립니다.</span>
               </p>
             </div>
           </li>
@@ -95,12 +108,12 @@ export default function Main() {
             <div className='txt_wrap'>
               <span className='nunito'>POINT 02</span>
               <h3>
-                소통왕 <em>전담매니저</em>가 고객님의 상황에<br />
-                맞춤 케어를 해드립니다.
+                <span>소통왕 <em>전담매니저</em>가 고객님의 상황에</span>
+                <span>맞춤 케어를 해드립니다.</span>
               </h3>
               <p>
-                럭키시스템의 전담 매니저는 적극적이고 신속한 피드백을 통해<br />
-                고객님의 상황을 빠르게 파악하고 해결해드립니다.
+                <span>럭키시스템의 전담 매니저는 적극적이고 신속한 피드백을 통해</span>
+                <span>고객님의 상황을 빠르게 파악하고 해결해드립니다.</span>
               </p>
             </div>
           </li>
@@ -147,7 +160,10 @@ export default function Main() {
     </section>
     <section id='partner_wrap'>
       <div className='tit_wrap'>
-        <p>럭키시스템과 함께하는 대표 파트너사</p>
+        <p>
+          <span>럭키시스템과 함께하는</span>
+          <span>대표 파트너사</span>
+        </p>
       </div>
       <div className='slide_banner'>
         <Partner/>
@@ -157,7 +173,10 @@ export default function Main() {
       <ul>
         <li className='sub1'>
           <div className='list_wrap'>
-            <p className='sub_tit'>럭키시스템에 대해 궁금하신 사항이 있으신가요?</p>
+            <p className='sub_tit'>
+              <span>럭키시스템에 대해</span>
+              <span>궁금하신 사항이 있으신가요?</span>
+            </p>
             <div className='number_wrap'>
               <strong>02-461-2203</strong>
               <strong>010-3667-3231</strong>
@@ -181,6 +200,8 @@ export default function Main() {
         </li>
       </ul>
     </section>
+    </MainSection>
+    <Footer/>
     </>
   )
 }
